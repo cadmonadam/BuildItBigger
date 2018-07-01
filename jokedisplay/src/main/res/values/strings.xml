@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">JokeHunter</string>
+
+    <string name="error_no_joke_available">Unfortunately there is no joke at all!</string>
+</resources>
