@@ -13,7 +13,6 @@ buildscript {
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.3"
-
     defaultConfig {
         applicationId "com.udacity.gradle.builditbigger"
         minSdkVersion 16
@@ -24,12 +23,31 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    flavorDimensions "tier"
+
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+            versionName "1.0­free"
+            dimension "tier"
+        }
+
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+            versionName "1.0­paid"
+            dimension "tier"
+        }
+    }
+    sourceSets {
+        paid { java.srcDirs = ['src/paid/java', 'src/paid/java/'] } 
+        free {java.srcDirs = ['src/free/java', 'src/free/java/'] }
     }
 }
 
